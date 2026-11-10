@@ -1,0 +1,33 @@
+{
+  "locale": "en",
+  "name": "mkremnev",
+  "title": "Fullstack Developer",
+  "summary": "I build web applications with TypeScript and React: from interfaces to infrastructure. I write maintainable code and enjoy automating routine work.",
+  "contacts": [
+    { "type": "email", "label": "Email", "url": "mailto:hello@example.com" },
+    { "type": "github", "label": "GitHub", "url": "https://github.com/mkremnev" },
+    { "type": "telegram", "label": "Telegram", "url": "https://t.me/mkremnev" }
+  ],
+  "hardSkills": [
+    { "name": "TypeScript", "category": "Languages", "level": "advanced", "icon": "typescript" },
+    { "name": "JavaScript", "category": "Languages", "level": "advanced", "icon": "javascript" },
+    { "name": "Python", "category": "Languages", "level": "confident", "icon": "python" },
+    { "name": "SQL", "category": "Languages", "level": "confident" },
+    { "name": "React", "category": "Frameworks", "level": "advanced", "icon": "react" },
+    { "name": "Node.js", "category": "Frameworks", "level": "advanced", "icon": "nodedotjs" },
+    { "name": "Astro", "category": "Frameworks", "level": "confident", "icon": "astro" },
+    { "name": "Express", "category": "Frameworks", "level": "confident", "icon": "express" },
+    { "name": "Git", "category": "Tools", "level": "advanced", "icon": "git" },
+    { "name": "Docker", "category": "Tools", "level": "confident", "icon": "docker" },
+    { "name": "Vite", "category": "Tools", "level": "confident", "icon": "vite" },
+    { "name": "Linux", "category": "Tools", "level": "confident", "icon": "linux" },
+    { "name": "PostgreSQL", "category": "Databases", "level": "confident", "icon": "postgresql" },
+    { "name": "Redis", "category": "Databases", "level": "basic", "icon": "redis" }
+  ],
+  "softSkills": [
+    { "name": "Communication" },
+    { "name": "Teamwork" },
+    { "name": "Responsibility" },
+    { "name": "Learnability" }
+  ]
+}

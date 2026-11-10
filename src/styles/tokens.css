@@ -1,0 +1,40 @@
+/* Дизайн-токены проекта (конституция, принцип II).
+   Единый визуальный язык: только эти переменные в стилях компонентов. */
+:root {
+  /* Палитра (единая тёмная тема) */
+  --color-bg: #0b0d12;
+  --color-surface: #14171f;
+  --color-surface-2: #1b1f2a;
+  --color-text: #e8eaf0;
+  --color-text-muted: #9aa1b2;
+  --color-accent: #7c6cff;
+  --color-accent-2: #4cc2ff;
+  --color-border: #262b38;
+
+  /* Типографика (только системные шрифты — без внешних запросов) */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'JetBrains Mono', monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+
+  /* Отступы (сетка 4px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Радиусы и тени */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 8px 30px rgb(0 0 0 / 0.35);
+}

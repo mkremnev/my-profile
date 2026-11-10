@@ -1,0 +1,33 @@
+{
+  "locale": "ru",
+  "name": "mkremnev",
+  "title": "Fullstack Developer",
+  "summary": "Разрабатываю веб-приложения на TypeScript и React: от интерфейсов до инфраструктуры. Пишу поддерживаемый код и люблю автоматизацию рутины.",
+  "contacts": [
+    { "type": "email", "label": "Email", "url": "mailto:hello@example.com" },
+    { "type": "github", "label": "GitHub", "url": "https://github.com/mkremnev" },
+    { "type": "telegram", "label": "Telegram", "url": "https://t.me/mkremnev" }
+  ],
+  "hardSkills": [
+    { "name": "TypeScript", "category": "Языки", "level": "advanced", "icon": "typescript" },
+    { "name": "JavaScript", "category": "Языки", "level": "advanced", "icon": "javascript" },
+    { "name": "Python", "category": "Языки", "level": "confident", "icon": "python" },
+    { "name": "SQL", "category": "Языки", "level": "confident" },
+    { "name": "React", "category": "Фреймворки", "level": "advanced", "icon": "react" },
+    { "name": "Node.js", "category": "Фреймворки", "level": "advanced", "icon": "nodedotjs" },
+    { "name": "Astro", "category": "Фреймворки", "level": "confident", "icon": "astro" },
+    { "name": "Express", "category": "Фреймворки", "level": "confident", "icon": "express" },
+    { "name": "Git", "category": "Инструменты", "level": "advanced", "icon": "git" },
+    { "name": "Docker", "category": "Инструменты", "level": "confident", "icon": "docker" },
+    { "name": "Vite", "category": "Инструменты", "level": "confident", "icon": "vite" },
+    { "name": "Linux", "category": "Инструменты", "level": "confident", "icon": "linux" },
+    { "name": "PostgreSQL", "category": "БД", "level": "confident", "icon": "postgresql" },
+    { "name": "Redis", "category": "БД", "level": "basic", "icon": "redis" }
+  ],
+  "softSkills": [
+    { "name": "Коммуникация" },
+    { "name": "Работа в команде" },
+    { "name": "Ответственность" },
+    { "name": "Обучаемость" }
+  ]
+}

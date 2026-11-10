@@ -1,0 +1,9 @@
+dist/
+node_modules/
+.astro/
+coverage/
+package-lock.json
+specs/
+.specify/
+.kimi-code/
+.serena/

@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+import { t, type Locale } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+}
+
+const { title, description, locale } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const site = Astro.site ?? new URL('https://mkremnev.github.io');
+const ruUrl = new URL(base, site).href;
+const enUrl = new URL(base + 'en/', site).href;
+const canonical = locale === 'en' ? enUrl : ruUrl;
+const ogLocale = locale === 'en' ? 'en_US' : 'ru_RU';
+const ogLocaleAlternate = locale === 'en' ? 'ru_RU' : 'en_US';
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="ru" href={ruUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={ruUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t(locale, 'a11y.skip')}</a>
+    <slot />
+    <script is:inline define:vars={{ base }}>
+      // Определение языка — только прогрессивное улучшение. Без JS страница
+      // остаётся на языке по умолчанию; переключатель — обычная ссылка.
+      (function () {
+        try {
+          var saved = localStorage.getItem('lang');
+          var lang = saved || (navigator.language || '').toLowerCase().slice(0, 2);
+          var onEn = window.location.pathname.indexOf(base + 'en') === 0;
+          if (lang === 'en' && !onEn) {
+            localStorage.setItem('lang', 'en');
+            window.location.replace(base + 'en/');
+          } else if (lang === 'ru' && onEn) {
+            localStorage.setItem('lang', 'ru');
+            window.location.replace(base);
+          }
+        } catch (e) {
+          /* localStorage недоступен — молча пропускаем */
+        }
+      })();
+    </script>
+  </body>
+</html>
