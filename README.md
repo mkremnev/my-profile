@@ -1,12 +1,12 @@
 # my-profile
 
 Сайт-визитка разработчика: одностраничный статический сайт на Astro 7 + React 19,
-двуязычный (RU/EN), хостинг на GitHub Pages.
+двуязычный (RU/EN), хостинг на GitHub Pages. Стек: Astro 7, React 19 (остров
+ProfileCard из React Bits), TypeScript 5.9, Vitest. Деплой идёт через GitHub
+Actions (`withastro/action`) на GitHub Pages, `base: /my-profile`.
 
-- **Стек**: Astro 7, React 19 (остров ProfileCard из React Bits), TypeScript 5.9, Vitest
-- **Деплой**: GitHub Actions (`withastro/action`) → GitHub Pages, `base: /my-profile`
-- **Спецификация**: `specs/001-developer-card-site/` (Speckit: spec → plan → tasks)
-- **Конституция проекта**: `.specify/memory/constitution.md`
+Спецификация и план лежат в `specs/001-developer-card-site/` (Speckit: spec →
+plan → tasks), конституция проекта — в `.specify/memory/constitution.md`.
 
 ## Команды
 
@@ -21,30 +21,34 @@ npm run format     # автоформатирование Prettier
 npm run icons      # перегенерация иконок Simple Icons → src/components/icons/
 ```
 
-## Как обновить контент (≤ 5 минут, правятся только JSON)
+## Как обновить контент
 
-Весь контент — в двух файлах:
+Правятся только два JSON-файла; на всё уходит не больше пяти минут:
 
 - `src/content/profile/ru.json` — русская версия (`/`)
 - `src/content/profile/en.json` — английская версия (`/en/`)
 
-Правила (нарушение = падение сборки с ошибкой zod):
+Нарушение любого правила ниже роняет сборку с ошибкой zod:
 
-1. **Паритет**: набор `hardSkills[].name` и `contacts[].url` должен совпадать в
-   обоих файлах; `softSkills` — одинаковое количество и порядок. Тесты
-   (`npm test`) ловят рассинхрон.
-2. **Уровни**: `level` строго `basic` | `confident` | `advanced`
-   (отображаемые подписи локализованы в `src/i18n/ui.ts`).
-3. **Контакты**: минимум два, обязательны типы `email` и `github`.
-4. **Локализация**: переводятся `summary`, `category`, `note`, имена софт-скилов;
+1. Паритет: набор `hardSkills[].name` и `contacts[].url` должен совпадать в
+   обоих файлах; `softSkills` — одинаковое количество и порядок. Рассинхрон
+   ловят тесты (`npm test`).
+2. Уровни: `level` строго `basic` | `confident` | `advanced`; подписи для
+   отображения берутся из `src/i18n/ui.ts`.
+3. Контакты: минимум два, обязательны типы `email` и `github`.
+4. Локализация: переводятся `summary`, `category`, `note` и имена софт-скилов;
    не переводятся `name`, `title`, названия технологий и контактов.
-5. **Иконки**: `icon` — слаг Simple Icons (`^[a-z0-9-]+$`, напр. `typescript`);
-   после добавления новых слагов запустите `npm run icons`. Навык без иконки
-   отображается без неё.
-6. **Фото**: опционально, поле `photo` — путь относительно `public/`
+5. Иконки: `icon` — слаг Simple Icons (`^[a-z0-9-]+$`, напр. `typescript`).
+   После добавления новых слагов запустите `npm run icons`. Навык без иконки
+   просто отображается без неё.
+6. Фото: опционально; `photo` — путь относительно `public/`
    (напр. `/images/avatar.webp`).
 
-После правки: `npm run build && npm run preview` — проверьте обе локали.
+После правки соберите сайт и проверьте обе локали:
+
+```bash
+npm run build && npm run preview
+```
 
 ## Структура
 
