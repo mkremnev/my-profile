@@ -6,7 +6,8 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 const targetLocale: Locale = locale === 'ru' ? 'en' : 'ru';
 const target = targetLocale === 'en' ? `${base}en/` : base;
 ---

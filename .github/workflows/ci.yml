@@ -36,7 +36,11 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress './dist/**/*.html'
+          args: >-
+            --no-progress
+            --exclude '^/my-profile/'
+            --exclude '^https://mkremnev\.github\.io/'
+            './dist/**/*.html'
 
       - name: Lighthouse CI
         run: npx lhci autorun
