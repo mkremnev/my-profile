@@ -1,0 +1,13 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Home from '../../components/Home.astro';
+
+const entry = await getEntry('profile', 'en');
+if (!entry) throw new Error('profile en not found');
+const profile = entry.data;
+---
+
+<Base title={`${profile.name} — ${profile.title}`} description={profile.summary} locale="en">
+  <Home profile={profile} locale="en" />
+</Base>

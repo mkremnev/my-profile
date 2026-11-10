@@ -45,9 +45,9 @@ const ogLocaleAlternate = locale === 'en' ? 'ru_RU' : 'en_US';
       // остаётся на языке по умолчанию; переключатель — обычная ссылка.
       (function () {
         try {
-          var saved = localStorage.getItem('lang');
-          var lang = saved || (navigator.language || '').toLowerCase().slice(0, 2);
-          var onEn = window.location.pathname.indexOf(base + 'en') === 0;
+          const saved = localStorage.getItem('lang');
+          const lang = saved || (navigator.language || '').toLowerCase().slice(0, 2);
+          const onEn = window.location.pathname.indexOf(base + 'en') === 0;
           if (lang === 'en' && !onEn) {
             localStorage.setItem('lang', 'en');
             window.location.replace(base + 'en/');
@@ -55,7 +55,7 @@ const ogLocaleAlternate = locale === 'en' ? 'ru_RU' : 'en_US';
             localStorage.setItem('lang', 'ru');
             window.location.replace(base);
           }
-        } catch (e) {
+        } catch {
           /* localStorage недоступен — молча пропускаем */
         }
       })();

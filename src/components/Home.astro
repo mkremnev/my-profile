@@ -1,0 +1,47 @@
+---
+import type { Profile } from '../content/schema';
+import { t, type Locale } from '../i18n/ui';
+import ProfileCardIsland from './ProfileCardIsland';
+import Contacts from './Contacts.astro';
+import LangToggle from './LangToggle.astro';
+
+interface Props {
+  profile: Profile;
+  locale: Locale;
+}
+
+const { profile, locale } = Astro.props;
+const email = profile.contacts.find((c) => c.type === 'email')?.url.replace('mailto:', '');
+---
+
+<LangToggle locale={locale} />
+<main id="main">
+  <section class="hero container" aria-label={profile.name}>
+    <ProfileCardIsland
+      client:visible
+      profile={profile}
+      contactText={t(locale, 'card.contact')}
+      email={email}
+    />
+    <p class="hero__summary">{profile.summary}</p>
+  </section>
+  <Contacts contacts={profile.contacts} locale={locale} />
+</main>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    padding-block: var(--space-16) var(--space-12);
+    text-align: center;
+  }
+
+  .hero__summary {
+    max-width: 560px;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+  }
+</style>

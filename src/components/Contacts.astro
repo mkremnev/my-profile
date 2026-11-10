@@ -1,0 +1,51 @@
+---
+import type { Contact } from '../content/schema';
+import { t, type Locale } from '../i18n/ui';
+
+interface Props {
+  contacts: Contact[];
+  locale: Locale;
+}
+
+const { contacts, locale } = Astro.props;
+---
+
+<section class="section container" aria-labelledby="contacts-heading">
+  <h2 id="contacts-heading" class="section__title">{t(locale, 'contacts.title')}</h2>
+  <ul class="contacts">
+    {
+      contacts.map((c) => (
+        <li>
+          <a href={c.url} target="_blank" rel="noopener noreferrer">
+            {c.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contacts a {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+  }
+
+  .contacts a:hover {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+</style>
