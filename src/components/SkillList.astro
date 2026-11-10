@@ -1,0 +1,89 @@
+---
+import type { HardSkill } from '../content/schema';
+import { t, levelLabels, type Locale } from '../i18n/ui';
+
+interface Props {
+  skills: HardSkill[];
+  locale: Locale;
+}
+
+const { skills, locale } = Astro.props;
+
+const groups = new Map<string, HardSkill[]>();
+for (const skill of skills) {
+  const list = groups.get(skill.category) ?? [];
+  list.push(skill);
+  groups.set(skill.category, list);
+}
+
+const iconModules = import.meta.glob<{ default: (props: { size?: number }) => unknown }>(
+  './icons/*.astro',
+  { eager: true },
+);
+const iconBySlug = new Map<string, (props: { size?: number }) => unknown>();
+for (const [path, mod] of Object.entries(iconModules)) {
+  iconBySlug.set(path.replace('./icons/', '').replace('.astro', ''), mod.default);
+}
+---
+
+<section class="section container" aria-labelledby="skills-heading">
+  <h2 id="skills-heading" class="section__title">{t(locale, 'skills.title')}</h2>
+  {
+    Array.from(groups.entries()).map(([category, items]) => (
+      <div class="skill-group">
+        <h3 class="skill-group__title">{category}</h3>
+        <ul class="skill-list">
+          {items.map((skill) => {
+            const Icon = skill.icon ? iconBySlug.get(skill.icon) : undefined;
+            return (
+              <li class="skill">
+                {Icon && <Icon size={16} />}
+                <span class="skill__name">{skill.name}</span>
+                <span class="skill__level">{t(locale, levelLabels[skill.level])}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .skill-group {
+    margin-bottom: var(--space-8);
+  }
+
+  .skill-group__title {
+    margin: 0 0 var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .skill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .skill__level {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+  }
+</style>

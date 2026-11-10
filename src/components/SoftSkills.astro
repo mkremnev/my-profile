@@ -1,0 +1,56 @@
+---
+import type { SoftSkill } from '../content/schema';
+import { t, type Locale } from '../i18n/ui';
+
+interface Props {
+  skills: SoftSkill[];
+  locale: Locale;
+}
+
+const { skills, locale } = Astro.props;
+---
+
+<section class="section container" aria-labelledby="soft-skills-heading">
+  <h2 id="soft-skills-heading" class="section__title">{t(locale, 'softSkills.title')}</h2>
+  <ul class="soft-skills">
+    {
+      skills.map((skill) => (
+        <li class="soft-skill">
+          <span class="soft-skill__name">{skill.name}</span>
+          {skill.note && <span class="soft-skill__note">{skill.note}</span>}
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .soft-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .soft-skill {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  .soft-skill__name {
+    font-weight: 600;
+  }
+
+  .soft-skill__note {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+</style>

@@ -3,6 +3,8 @@ import type { Profile } from '../content/schema';
 import { t, type Locale } from '../i18n/ui';
 import ProfileCardIsland from './ProfileCardIsland';
 import Contacts from './Contacts.astro';
+import SkillList from './SkillList.astro';
+import SoftSkills from './SoftSkills.astro';
 import LangToggle from './LangToggle.astro';
 
 interface Props {
@@ -26,6 +28,8 @@ const email = profile.contacts.find((c) => c.type === 'email')?.url.replace('mai
     <p class="hero__summary">{profile.summary}</p>
   </section>
   <Contacts contacts={profile.contacts} locale={locale} />
+  <SkillList skills={profile.hardSkills} locale={locale} />
+  <SoftSkills skills={profile.softSkills} locale={locale} />
 </main>
 
 <style>
