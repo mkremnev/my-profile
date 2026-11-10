@@ -3,10 +3,11 @@
   "name": "mkremnev",
   "title": "Fullstack Developer",
   "summary": "I build web applications with TypeScript and React: from interfaces to infrastructure. I write maintainable code and enjoy automating routine work.",
+  "photo": "/profile.webp",
   "contacts": [
-    { "type": "email", "label": "Email", "url": "mailto:hello@example.com" },
+    { "type": "email", "label": "Email", "url": "mailto:i@mkremnev.ru" },
     { "type": "github", "label": "GitHub", "url": "https://github.com/mkremnev" },
-    { "type": "telegram", "label": "Telegram", "url": "https://t.me/mkremnev" }
+    { "type": "telegram", "label": "Telegram", "url": "https://t.me/m_kremnev" }
   ],
   "hardSkills": [
     { "name": "TypeScript", "category": "Languages", "level": "advanced", "icon": "typescript" },
@@ -14,6 +15,7 @@
     { "name": "Python", "category": "Languages", "level": "confident", "icon": "python" },
     { "name": "SQL", "category": "Languages", "level": "confident" },
     { "name": "React", "category": "Frameworks", "level": "advanced", "icon": "react" },
+    { "name": "Nextjs", "category": "Frameworks", "level": "advanced", "icon": "react" },
     { "name": "Node.js", "category": "Frameworks", "level": "advanced", "icon": "nodedotjs" },
     { "name": "Astro", "category": "Frameworks", "level": "confident", "icon": "astro" },
     { "name": "Express", "category": "Frameworks", "level": "confident", "icon": "express" },

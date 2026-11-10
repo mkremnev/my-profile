@@ -2,11 +2,13 @@
   "locale": "ru",
   "name": "mkremnev",
   "title": "Fullstack Developer",
+  "photo": "/profile.jpeg",
   "summary": "Разрабатываю веб-приложения на TypeScript и React: от интерфейсов до инфраструктуры. Пишу поддерживаемый код и люблю автоматизацию рутины.",
+  "photo": "/profile.webp",
   "contacts": [
-    { "type": "email", "label": "Email", "url": "mailto:hello@example.com" },
+    { "type": "email", "label": "Email", "url": "mailto:i@mkremnev.ru" },
     { "type": "github", "label": "GitHub", "url": "https://github.com/mkremnev" },
-    { "type": "telegram", "label": "Telegram", "url": "https://t.me/mkremnev" }
+    { "type": "telegram", "label": "Telegram", "url": "https://t.me/m_kremnev" }
   ],
   "hardSkills": [
     { "name": "TypeScript", "category": "Языки", "level": "advanced", "icon": "typescript" },
@@ -14,6 +16,7 @@
     { "name": "Python", "category": "Языки", "level": "confident", "icon": "python" },
     { "name": "SQL", "category": "Языки", "level": "confident" },
     { "name": "React", "category": "Фреймворки", "level": "advanced", "icon": "react" },
+    { "name": "Nextjs", "category": "Фреймворки", "level": "advanced", "icon": "react" },
     { "name": "Node.js", "category": "Фреймворки", "level": "advanced", "icon": "nodedotjs" },
     { "name": "Astro", "category": "Фреймворки", "level": "confident", "icon": "astro" },
     { "name": "Express", "category": "Фреймворки", "level": "confident", "icon": "express" },

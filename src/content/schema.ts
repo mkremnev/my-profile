@@ -27,7 +27,7 @@ export const profileSchema = z.object({
   name: z.string().min(1),
   title: z.string().min(1),
   summary: z.string().min(1).max(400),
-  photo: z.string().optional(),
+  photo: z.string(),
   contacts: z.array(contactSchema).min(2),
   hardSkills: z.array(hardSkillSchema).min(1),
   softSkills: z.array(softSkillSchema).min(1),
