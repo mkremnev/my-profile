@@ -33,14 +33,19 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Prepare link-check root
+        run: |
+          mkdir -p .linkcheck/my-profile
+          cp -r dist/* .linkcheck/my-profile/
+
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress
-            --exclude '^/my-profile/'
+            --root-dir .linkcheck
             --exclude '^https://mkremnev\.github\.io/'
-            './dist/**/*.html'
+            './.linkcheck/my-profile/**/*.html'
 
       - name: Lighthouse CI
         run: npx lhci autorun
