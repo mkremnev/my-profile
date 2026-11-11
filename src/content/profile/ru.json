@@ -1,9 +1,8 @@
 {
   "locale": "ru",
-  "name": "mkremnev",
+  "name": "Максим Кремнев",
   "title": "Fullstack Developer",
-  "photo": "/profile.jpeg",
-  "summary": "Разрабатываю веб-приложения на TypeScript и React: от интерфейсов до инфраструктуры. Пишу поддерживаемый код и люблю автоматизацию рутины.",
+  "summary": "Не просто пишу код — разбираюсь в задаче и создаю веб-решения, которые её решают.",
   "photo": "/profile.webp",
   "contacts": [
     { "type": "email", "label": "Email", "url": "mailto:i@mkremnev.ru" },
@@ -19,7 +18,6 @@
     { "name": "Nextjs", "category": "Фреймворки", "level": "advanced", "icon": "react" },
     { "name": "Node.js", "category": "Фреймворки", "level": "advanced", "icon": "nodedotjs" },
     { "name": "Astro", "category": "Фреймворки", "level": "confident", "icon": "astro" },
-    { "name": "Express", "category": "Фреймворки", "level": "confident", "icon": "express" },
     { "name": "Git", "category": "Инструменты", "level": "advanced", "icon": "git" },
     { "name": "Docker", "category": "Инструменты", "level": "confident", "icon": "docker" },
     { "name": "Vite", "category": "Инструменты", "level": "confident", "icon": "vite" },

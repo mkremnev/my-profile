@@ -1,8 +1,8 @@
 {
   "locale": "en",
-  "name": "mkremnev",
+  "name": "Maksim Kremnev",
   "title": "Fullstack Developer",
-  "summary": "I build web applications with TypeScript and React: from interfaces to infrastructure. I write maintainable code and enjoy automating routine work.",
+  "summary": "I don’t just write code — I understand the problem and create web solutions that solve it.",
   "photo": "/profile.webp",
   "contacts": [
     { "type": "email", "label": "Email", "url": "mailto:i@mkremnev.ru" },
@@ -18,7 +18,6 @@
     { "name": "Nextjs", "category": "Frameworks", "level": "advanced", "icon": "react" },
     { "name": "Node.js", "category": "Frameworks", "level": "advanced", "icon": "nodedotjs" },
     { "name": "Astro", "category": "Frameworks", "level": "confident", "icon": "astro" },
-    { "name": "Express", "category": "Frameworks", "level": "confident", "icon": "express" },
     { "name": "Git", "category": "Tools", "level": "advanced", "icon": "git" },
     { "name": "Docker", "category": "Tools", "level": "confident", "icon": "docker" },
     { "name": "Vite", "category": "Tools", "level": "confident", "icon": "vite" },
