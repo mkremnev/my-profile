@@ -5,9 +5,6 @@
 ProfileCard из React Bits), TypeScript 5.9, Vitest. Деплой идёт через GitHub
 Actions (`withastro/action`) на GitHub Pages, `base: /my-profile`.
 
-Спецификация и план лежат в `specs/001-developer-card-site/` (Speckit: spec →
-plan → tasks), конституция проекта — в `.specify/memory/constitution.md`.
-
 ## Команды
 
 ```bash
