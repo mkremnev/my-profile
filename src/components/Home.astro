@@ -1,11 +1,11 @@
 ---
 import type { Profile } from '../content/schema';
 import { t, type Locale } from '../i18n/ui';
-import ProfileCardIsland from './ProfileCardIsland';
 import Contacts from './Contacts.astro';
+import LangToggle from './LangToggle.astro';
+import ProfileCardIsland from './ProfileCardIsland';
 import SkillList from './SkillList.astro';
 import SoftSkills from './SoftSkills.astro';
-import LangToggle from './LangToggle.astro';
 
 interface Props {
   profile: Profile;
@@ -14,6 +14,7 @@ interface Props {
 
 const { profile, locale } = Astro.props;
 const email = profile.contacts.find((c) => c.type === 'email')?.url.replace('mailto:', '');
+const telegram = profile.contacts.find((c) => c.type === 'telegram')?.url;
 ---
 
 <LangToggle locale={locale} />
@@ -24,6 +25,7 @@ const email = profile.contacts.find((c) => c.type === 'email')?.url.replace('mai
       profile={profile}
       contactText={t(locale, 'card.contact')}
       email={email}
+      telegram={telegram}
     />
     <p class="hero__summary">{profile.summary}</p>
   </section>

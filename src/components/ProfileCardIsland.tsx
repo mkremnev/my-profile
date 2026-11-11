@@ -1,21 +1,26 @@
+import type { Profile } from "../content/schema";
 import ProfileCard from "./ProfileCard";
 import { toProfileCardVm, type ProfileCardVm } from "./profileCardVm";
-import type { Profile } from "../content/schema";
 
 interface Props {
   profile: Profile;
   contactText: string;
   email?: string;
+  telegram?: string;
 }
 
-export default function ProfileCardIsland({ profile, contactText, email }: Props) {
+export default function ProfileCardIsland({ profile, contactText, email, telegram }: Props) {
   const vm: ProfileCardVm = toProfileCardVm(profile, contactText);
-  return (
-    <ProfileCard
-      {...vm}
-      onContactClick={() => {
-        if (email) window.location.href = `mailto:${email}`;
-      }}
-    />
-  );
+
+  const handleClick = () => {
+    if (telegram) {
+      window.location.href = telegram;
+      return;
+    }
+    if (email) {
+      window.location.href = `mailto:${email}`;
+    }
+  };
+
+  return <ProfileCard {...vm} onContactClick={handleClick} />;
 }
