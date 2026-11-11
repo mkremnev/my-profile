@@ -46,11 +46,11 @@ type OrientationPermission = {
 
 const THEMES: Record<Palette, Record<string, string>> = {
   dark: {
-    "--pc-frame": "rgba(38, 35, 46, 0.66)",
+    "--pc-frame": "rgba(35, 42, 40, 0.66)",
     "--pc-frame-edge": "rgba(255, 255, 0.08)",
     "--pc-frame-highlight": "rgba(255, 255, 0.07)",
     "--pc-frame-shadow": "0 22px 44px -20px rgba(0, 0, 0.8), 6px 16px -8px 0.5)",
-    "--pc-tile": "linear-gradient(180deg, #3a3644 0%, #27242f 100%)",
+    "--pc-tile": "linear-gradient(180deg, #36403c 0%, #242b29 100%)",
     "--pc-tile-edge": "rgba(255, 255, 0.07)",
     "--pc-tile-highlight": "rgba(255, 255, 0.12)",
     "--pc-tile-shadow": "0 4px 10px -4px rgba(0, 0, 0.7)",
