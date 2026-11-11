@@ -78,9 +78,18 @@ a:hover {
 }
 
 @media print {
+  :root {
+    --color-bg: oklch(0.99 0.005 190);
+    --color-surface: oklch(0.96 0.008 195);
+    --color-surface-2: oklch(0.93 0.01 195);
+    --color-text: oklch(0.25 0.02 195);
+    --color-text-muted: oklch(0.45 0.02 195);
+    --color-accent: oklch(0.45 0.08 175);
+    --color-border: oklch(0.82 0.015 195);
+  }
+
   body {
-    background: #fff;
-    color: #000;
+    background: var(--color-bg);
   }
 
   .skip-link {
