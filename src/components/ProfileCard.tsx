@@ -11,7 +11,6 @@ type Palette = "dark" | "light";
 interface ProfileCardProps {
   avatarUrl?: string;
   iconUrl?: string;
-  miniAvatarUrl?: string;
   name?: string;
   title?: string;
   handle?: string;
@@ -47,27 +46,29 @@ type OrientationPermission = {
 const THEMES: Record<Palette, Record<string, string>> = {
   dark: {
     "--pc-frame": "rgba(35, 42, 40, 0.66)",
-    "--pc-frame-edge": "rgba(255, 255, 0.08)",
-    "--pc-frame-highlight": "rgba(255, 255, 0.07)",
-    "--pc-frame-shadow": "0 22px 44px -20px rgba(0, 0, 0.8), 6px 16px -8px 0.5)",
+    "--pc-frame-edge": "rgba(255, 255, 255, 0.08)",
+    "--pc-frame-highlight": "rgba(255, 255, 255, 0.07)",
+    "--pc-frame-shadow":
+      "0 22px 44px -20px rgba(0, 0, 0, 0.8), 0 6px 16px -8px rgba(0, 0, 0, 0.5)",
     "--pc-tile": "linear-gradient(180deg, #36403c 0%, #242b29 100%)",
-    "--pc-tile-edge": "rgba(255, 255, 0.07)",
-    "--pc-tile-highlight": "rgba(255, 255, 0.12)",
-    "--pc-tile-shadow": "0 4px 10px -4px rgba(0, 0, 0.7)",
+    "--pc-tile-edge": "rgba(255, 255, 255, 0.07)",
+    "--pc-tile-highlight": "rgba(255, 255, 255, 0.12)",
+    "--pc-tile-shadow": "0 4px 10px -4px rgba(0, 0, 0, 0.7)",
     "--pc-ink": "#f4f4f5",
     "--pc-muted": "rgba(244, 244, 245, 0.6)",
     "--pc-hover": "brightness(1.12)",
     "--pc-press": "brightness(0.8)",
-    "--pc-shade": "rgba(0, 0, 0.4)",
+    "--pc-shade": "rgba(0, 0, 0, 0.4)",
   },
   light: {
     "--pc-frame": "rgba(240, 240, 243, 0.8)",
     "--pc-frame-edge": "rgba(24, 24, 27, 0.07)",
-    "--pc-frame-highlight": "rgba(255, 255, 0.95)",
-    "--pc-frame-shadow": "0 22px 44px -22px rgba(24, 24, 27, 0.3), 6px 16px -10px 0.16)",
+    "--pc-frame-highlight": "rgba(255, 255, 255, 0.95)",
+    "--pc-frame-shadow":
+      "0 22px 44px -22px rgba(24, 24, 27, 0.3), 0 6px 16px -10px rgba(24, 24, 27, 0.16)",
     "--pc-tile": "linear-gradient(180deg, #ffffff 0%, #f6f6f8 100%)",
     "--pc-tile-edge": "rgba(24, 24, 27, 0.08)",
-    "--pc-tile-highlight": "rgba(255, 255, 1)",
+    "--pc-tile-highlight": "rgba(255, 255, 255, 1)",
     "--pc-tile-shadow": "0 4px 10px -5px rgba(24, 24, 27, 0.25)",
     "--pc-ink": "#27272a",
     "--pc-muted": "rgba(39, 39, 42, 0.6)",
@@ -81,12 +82,12 @@ const FOILS: Record<Palette, Record<string, string>> = {
   dark: {
     "--pc-blend": "color-dodge",
     "--pc-holo-filter": "hue-rotate(0deg)",
-    "--pc-sheen": "rgba(255, 255, 0.16)",
+    "--pc-sheen": "rgba(255, 255, 255, 0.16)",
   },
   light: {
     "--pc-blend": "multiply",
     "--pc-holo-filter": "invert(1) hue-rotate(180deg)",
-    "--pc-sheen": "rgba(255, 255, 0)",
+    "--pc-sheen": "rgba(255, 255, 255, 0)",
   },
 };
 
@@ -107,7 +108,6 @@ const isDark = (color: string): boolean | null => {
 const ProfileCard = ({
   avatarUrl = "",
   iconUrl,
-  miniAvatarUrl,
   name = "Javi A. Torres",
   title = "Software Engineer",
   handle = "javicodes",
@@ -384,36 +384,28 @@ const ProfileCard = ({
               <div className="profile-card__info">
                 {name && <h1 className="profile-card__name">{name}</h1>}
                 {title && <p className="profile-card__title">{title}</p>}
+                {showUserInfo && handle && (
+                  <span className="profile-card__handle">@{handle}</span>
+                )}
+                {showUserInfo && status && (
+                  <span className="profile-card__status">{status}</span>
+                )}
               </div>
             </>
           )}
+          {showUserInfo && contactText && (
+            <button
+              type="button"
+              className="profile-card__contact"
+              onClick={onContactClick}
+              aria-label={name ? `${contactText} ${name}` : contactText}
+            >
+              <HugeiconsIcon icon={Mail01Icon} size={16} strokeWidth={1.8} />
+              {contactText}
+            </button>
+          )}
           <span className="profile-card__tile-rim" />
         </div>
-
-        {showUserInfo && (
-          <div className="profile-card__footer">
-            {miniAvatarUrl && (
-              <span className="profile-card__avatar">
-                <img src={miniAvatarUrl} alt="" loading="lazy" draggable={false} />
-              </span>
-            )}
-            <div className="profile-card__meta">
-              {handle && <span className="profile-card__handle">@{handle}</span>}
-              {status && <span className="profile-card__status">{status}</span>}
-            </div>
-            {contactText && (
-              <button
-                type="button"
-                className="profile-card__contact"
-                onClick={onContactClick}
-                aria-label={name ? `${contactText} ${name}` : contactText}
-              >
-                <HugeiconsIcon icon={Mail01Icon} size={16} strokeWidth={1.8} />
-                {contactText}
-              </button>
-            )}
-          </div>
-        )}
 
         <span className="profile-card__glare" />
         <span className="profile-card__shade" />
