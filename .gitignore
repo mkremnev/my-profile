@@ -23,3 +23,7 @@ Thumbs.db
 .serena/
 .lighthouseci/
 .linkcheck/
+
+# Impeccable design-skill context and artifacts
+PRODUCT.md
+.impeccable/
