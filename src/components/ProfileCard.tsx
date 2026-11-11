@@ -382,7 +382,7 @@ const ProfileCard = ({
             <>
               <span className="profile-card__scrim" />
               <div className="profile-card__info">
-                {name && <h3 className="profile-card__name">{name}</h3>}
+                {name && <h1 className="profile-card__name">{name}</h1>}
                 {title && <p className="profile-card__title">{title}</p>}
               </div>
             </>
