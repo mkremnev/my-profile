@@ -48,8 +48,7 @@ const THEMES: Record<Palette, Record<string, string>> = {
     "--pc-frame": "rgba(35, 42, 40, 0.66)",
     "--pc-frame-edge": "rgba(255, 255, 255, 0.08)",
     "--pc-frame-highlight": "rgba(255, 255, 255, 0.07)",
-    "--pc-frame-shadow":
-      "0 22px 44px -20px rgba(0, 0, 0, 0.8), 0 6px 16px -8px rgba(0, 0, 0, 0.5)",
+    "--pc-frame-shadow": "0 22px 44px -20px rgba(0, 0, 0, 0.8), 0 6px 16px -8px rgba(0, 0, 0, 0.5)",
     "--pc-tile": "linear-gradient(180deg, #36403c 0%, #242b29 100%)",
     "--pc-tile-edge": "rgba(255, 255, 255, 0.07)",
     "--pc-tile-highlight": "rgba(255, 255, 255, 0.12)",
@@ -384,12 +383,8 @@ const ProfileCard = ({
               <div className="profile-card__info">
                 {name && <h1 className="profile-card__name">{name}</h1>}
                 {title && <p className="profile-card__title">{title}</p>}
-                {showUserInfo && handle && (
-                  <span className="profile-card__handle">@{handle}</span>
-                )}
-                {showUserInfo && status && (
-                  <span className="profile-card__status">{status}</span>
-                )}
+                {showUserInfo && handle && <span className="profile-card__handle">@{handle}</span>}
+                {showUserInfo && status && <span className="profile-card__status">{status}</span>}
               </div>
             </>
           )}
